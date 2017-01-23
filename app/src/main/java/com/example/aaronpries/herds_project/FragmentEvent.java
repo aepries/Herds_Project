@@ -13,13 +13,13 @@ import android.view.ViewGroup;
 
 public class FragmentEvent extends Fragment {
 
-    public FragmentEvent(){
-
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_event,container,false);
-    }
+//    public FragmentEvent(){
+//
+//    }
+//
+//    @Nullable
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        return inflater.inflate(R.layout.fragment_event,container,false);
+//    }
 }

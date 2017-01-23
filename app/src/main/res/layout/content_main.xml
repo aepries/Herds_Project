@@ -13,11 +13,4 @@
     tools:context="com.example.aaronpries.herds_project.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <fragment
-        tools:layout="@layout/fragment_event"
-        android:id="@+id/fragment"
-        android:name="com.example.aaronpries.herds_project.FragmentEvent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
 </RelativeLayout>

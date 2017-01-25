@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -32,6 +33,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import static android.R.attr.fragment;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -41,6 +44,12 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView mBlogList;
     private FirebaseDatabase database;
     private DatabaseReference myRef;
+    final FragmentManager fm = getSupportFragmentManager();
+    final FragmentTransaction ft = fm.beginTransaction();
+
+
+    NavigationView navigationView = null;
+    Toolbar toolbar = null;
 
 
     @Override
@@ -71,10 +80,22 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Set Fragment View
+        MainFragment fragment = new MainFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+
+
+
         //RecyclerView
+
+
+
         mBlogList = (RecyclerView) findViewById(R.id.blog_list);
         mBlogList.setHasFixedSize(true);
         mBlogList.setLayoutManager(new LinearLayoutManager(this));
@@ -103,7 +124,7 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -145,12 +166,16 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        android.app.FragmentManager fm = getFragmentManager();
 
         if (id == R.id.nav_camera) {
 
+            Intent Events = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(Events);
 
         } else if (id == R.id.nav_gallery) {
+
+            Intent Groups = new Intent(MainActivity.this, GroupsActivity.class);
+            startActivity(Groups);
 
         } else if (id == R.id.nav_slideshow) {
 

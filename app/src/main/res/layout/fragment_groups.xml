@@ -1,8 +1,8 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.aaronpries.herds_project.AddEventFragment">
+    tools:context="com.example.aaronpries.herds_project.GroupsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -14,11 +14,11 @@
         android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:layout_margin="100dp"
-        android:background="@color/colorPrimary"
-        android:textColor="#fff"
-        android:textStyle="bold"
+        android:id="@+id/button3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="173dp"
+        android:background="#6644"
         />
 
-</FrameLayout>
+</RelativeLayout>

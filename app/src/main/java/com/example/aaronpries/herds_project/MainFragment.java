@@ -27,15 +27,7 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-//        final Button mainButton = (Button) rootView.findViewById(R.id.main_button);
-//        mainButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                mainButton.setBackgroundColor(getContext().getResources().getColor(R.color.colorAccent));
-//            }
-//        });
-        // Inflate the layout for this fragment
+
         return rootView;
     }
 

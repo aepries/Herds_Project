@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="BlueDark">#00008B</color>
+    <color name="transparent_black_percent_50">#80000000</color>
+    <color name="Gray_Dolphin">#5C5858</color>
 </resources>

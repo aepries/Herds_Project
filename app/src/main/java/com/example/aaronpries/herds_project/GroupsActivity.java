@@ -3,6 +3,7 @@ package com.example.aaronpries.herds_project;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
@@ -31,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.pkmmte.view.CircularImageView;
 import com.squareup.picasso.Picasso;
 
 import static android.R.attr.fragment;
@@ -59,7 +61,7 @@ public class GroupsActivity extends AppCompatActivity
         FirebaseRecyclerAdapter<ModelClass, BlogViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<ModelClass, BlogViewHolder>(
                         ModelClass.class,
-                        R.layout.design_row,
+                        R.layout.groups_layout,
                         BlogViewHolder.class,
                         myRef
                 ) {
@@ -67,7 +69,8 @@ public class GroupsActivity extends AppCompatActivity
 
                     @Override
                     protected void populateViewHolder(BlogViewHolder viewHolder, ModelClass model, int position) {
-                        viewHolder.setTitle(model.getTitle());
+                        viewHolder.setName(model.getName());
+                        viewHolder.setBio(model.getBio());
                         viewHolder.setImage(getApplicationContext(), model.getImage());
 
                     }
@@ -85,11 +88,18 @@ public class GroupsActivity extends AppCompatActivity
 
 
 
+//CircularView
+        CircularImageView circularImageView = (CircularImageView)findViewById(R.id.imageViewy);
+//        circularImageView.setBorderColor(getResources().getColor(R.color.Gray_Dolphin));
+//        circularImageView.setBorderWidth(10);
+//        circularImageView.setSelectorColor(getResources().getColor(R.color.transparent_black_percent_50));
+//        circularImageView.setSelectorStrokeColor(getResources().getColor(R.color.BlueDark));
+//        circularImageView.setSelectorStrokeWidth(10);
+//        circularImageView.addShadow();
+
+
 
         //RecyclerView
-
-
-
         mBlogList = (RecyclerView) findViewById(R.id.blog_list);
         mBlogList.setHasFixedSize(true);
         mBlogList.setLayoutManager(new LinearLayoutManager(this));
@@ -202,14 +212,19 @@ public class GroupsActivity extends AppCompatActivity
 //                    v.getContext().startActivity(browserChooserIntent);
                 }
             });}
-        public void setTitle(String name){
-            TextView post_title = (TextView)mView.findViewById(R.id.titleText);
-            post_title.setText(name);
+        public void setName(String name){
+            TextView post_name = (TextView)mView.findViewById(R.id.titleText);
+            post_name.setText(name);
         }
         public void setImage(Context ctx , String image){
-            ImageView post_image = (ImageView)mView.findViewById(R.id.imageViewy);
+//            ImageView post_image = (ImageView)mView.findViewById(R.id.imageViewy);
+            CircularImageView post_image = (CircularImageView)mView.findViewById(R.id.imageViewy);
             // We Need TO pass Context
             Picasso.with(ctx).load(image).into(post_image);
+        }
+        public void setBio(String bio){
+            TextView post_bio = (TextView)mView.findViewById(R.id.bioText);
+            post_bio.setText(bio);
         }
     }
 }
